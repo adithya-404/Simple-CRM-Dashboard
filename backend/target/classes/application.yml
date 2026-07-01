@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: SimpleCRM
+
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3307/crm_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: Adithyapm@2006
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+
+jwt:
+  secret: ReplaceThisWithYourVeryLongSecretKeyForJWTAuthentication123456789
+  expiration: 86400000
